@@ -1,0 +1,5 @@
+WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+2022-10-17 15:48:36:559 main INFO  [CodeCheckMain4Java.main 30]  args: -filestocheck D:\JavaProject/src\leecode\Solution.java -outputpath D:\JavaProject\.idea\code-check\originalReport\fixbotengine-java\report\fixbotengine-java1.json -ruleset FileTabCharacter,CodeInComment -caller codecheck -fixbotdir C:\Users\y30039724\.hicode\CodeCheck\CodeCheckAgent\fixbot
+2022-10-17 15:48:36:599 main INFO  [Entry4JavaCodeCheck.doCodeCheck 80]  Total check files num is : 1
+2022-10-17 15:48:37:272 main INFO  [Entry4JavaCodeCheck.doCodeCheck 82]  Total checked files num is : 1
+2022-10-17 15:48:37:272 main INFO  [CodeCheckMain4Java.main 34]  finished successfully.

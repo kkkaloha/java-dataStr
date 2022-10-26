@@ -1,0 +1,5 @@
+{
+  "result" : "success",
+  "data" : 4,
+  "consoleLog" : "本次检查使用的规则集为: [【IDE】JAVA语言规则集（通用规范4.x&安全规范3.x&cmetrics）], 共开启了 84 条规则"
+}
