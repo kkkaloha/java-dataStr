@@ -4,7 +4,7 @@ import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 public class SingleLinkDemo {
     //头节点
-    private Node heed = new Node(0, "");
+    private Node head = new Node(0, "");
 
     public static void main(String[] args) {
         SingleLinkDemo l = new SingleLinkDemo();
@@ -23,6 +23,8 @@ public class SingleLinkDemo {
         l.addByOrder(p4);
         l.addByOrder(p3);
 
+        l.update(new Node(3,"rose princess"));
+
         l.list();
 
 
@@ -31,9 +33,9 @@ public class SingleLinkDemo {
     //无序添加
     public void add(Node node) {
         //注意，java对象引用
-        Node tmp = heed;
-        if (heed.next == null) {
-            heed.next = node;
+        Node tmp = head;
+        if (head.next == null) {
+            head.next = node;
             return;
         }
         while (true) {
@@ -47,8 +49,8 @@ public class SingleLinkDemo {
 
     //有序添加
     public void addByOrder(Node node) {
-        Node tmp = heed;
-        if (heed.next == null) {
+        Node tmp = head;
+        if (head.next == null) {
             tmp.next = node;
             return;
         }
@@ -63,7 +65,8 @@ public class SingleLinkDemo {
                 break;
             }
             if (tmp.next.no == node.no) {
-                System.out.println("have exit the same no");
+                System.out.println("have exit the same no" + node.no);
+                System.out.println("fail to add"+node);
                 break;
             }
             tmp = tmp.next;
@@ -74,10 +77,31 @@ public class SingleLinkDemo {
 
     }
 
+    //修改
+    public void update(Node node) {
+        Node tmp = head.next;
+        if (head.next == null) {
+            System.out.println("this is an empty link");
+            return;
+        }
+        while (true) {
+            if (tmp.no == node.no) {
+                tmp.no = node.no;
+                tmp.name = node.name;
+                break;
+            }
+            if (tmp.next == null) {
+                System.out.println("didn't find this no:"+node.no);
+                break;
+            }
+            tmp = tmp.next;
+        }
+    }
+
     //打印
     public void list() {
-        Node tmp = heed.next;
-        if (heed.next == null) {
+        Node tmp = head.next;
+        if (head.next == null) {
             System.out.println("this is an tmpty link");
             return;
         }
