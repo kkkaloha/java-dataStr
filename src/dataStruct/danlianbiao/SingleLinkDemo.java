@@ -23,7 +23,8 @@ public class SingleLinkDemo {
         l.addByOrder(p4);
         l.addByOrder(p3);
 
-        l.update(new Node(3,"rose princess"));
+        l.delete(new Node(3,"rose"));
+//        l.update(new Node(3,"rose princess"));
 
         l.list();
 
@@ -95,6 +96,30 @@ public class SingleLinkDemo {
                 break;
             }
             tmp = tmp.next;
+        }
+    }
+
+    //删除
+    public void delete(Node node) {
+        if (head.next == null) {
+            System.out.println("this is an empty linked");
+            return;
+        }
+        Node tmp = head;
+        while (true) {
+            if (tmp.next == null) {
+                if (tmp.no != node.no) {
+                    System.out.println("this link doesn't the no");
+                    break;
+                }
+                break;
+            }
+            if (tmp.next.no == node.no) {
+                tmp.next = tmp.next.next;
+                break;
+            }
+            tmp = tmp.next;
+
         }
     }
 
