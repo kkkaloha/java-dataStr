@@ -23,10 +23,16 @@ public class SingleLinkDemo {
         l.addByOrder(p4);
         l.addByOrder(p3);
 
-        l.delete(new Node(3,"rose"));
-//        l.update(new Node(3,"rose princess"));
+        //System.out.println(l.length());
+        //l.delete(new Node(3,"rose"));
+        //l.update(new Node(3,"rose princess"));
+        //System.out.println(l.length());
 
         l.list();
+        l.reverse();
+        l.list();
+
+        //System.out.println(l.findLastIndexNode(3));;
 
 
     }
@@ -137,6 +143,76 @@ public class SingleLinkDemo {
             System.out.println(tmp);
             tmp = tmp.next;
         }
+    }
+
+    //输出有效节点
+    public int length() {
+        if (head.next == null) {
+            return 0;
+        }
+        Node tmp = head.next;
+        int cnt = 1;
+        while (tmp.next != null) {
+            cnt++;
+            tmp = tmp.next;
+        }
+        return cnt;
+
+    }
+
+    //打印倒数第k个节点
+    public Node findLastIndexNode(int index) {
+        int size = length();
+        if (size == 0) {
+            System.out.println("empty");
+            return null;
+        }
+        if (index <= 0 || index > size) {
+            return null;
+        }
+        Node tmp = head.next;
+
+        //自己写的：
+/*        for (int i = 0; i < size; i++) {
+            if (i + index == size) {
+                return tmp;
+            }
+            tmp = tmp.next;
+        }
+        return tmp;*/
+
+        //优化
+        for (int i = 0; i < size - index; i++) {
+            tmp = tmp.next;
+        }
+        return tmp;
+
+    }
+
+    //反转链表
+    //思路：重新定义一个新的头，可从原来的
+    public void reverse() {
+        if (head.next == null) {
+            System.out.println("empty");
+            return;
+        }
+        Node reHead = new Node(0, "");
+        Node tmp = head.next;
+        Node next = null;
+
+        while (true) {
+            if (tmp == null) {
+                break;
+            }
+            next = tmp.next;
+            tmp.next = reHead.next;
+            reHead.next = tmp;
+            tmp = next;
+        }
+        head = reHead;
+
+
+
     }
 }
 class Node{
