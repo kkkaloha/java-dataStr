@@ -2,6 +2,8 @@ package dataStruct.danlianbiao;
 
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
+import java.util.Stack;
+
 public class SingleLinkDemo {
     //头节点
     private Node head = new Node(0, "");
@@ -29,8 +31,10 @@ public class SingleLinkDemo {
         //System.out.println(l.length());
 
         l.list();
-        l.reverse();
-        l.list();
+        //l.reverse();
+        //l.list();
+
+        l.reversePrint();
 
         //System.out.println(l.findLastIndexNode(3));;
 
@@ -213,6 +217,23 @@ public class SingleLinkDemo {
 
 
 
+    }
+
+    //利用栈反向输出链表
+    public void reversePrint() {
+        if (head.next == null) {
+            System.out.println("empty");
+            return;
+        }
+        Node tmp = head.next;
+        Stack<Node> stack = new Stack<>();
+        while (tmp != null) {
+            stack.push(tmp);
+            tmp = tmp.next;
+        }
+        while (!stack.empty()) {
+            System.out.println(stack.pop());
+        }
     }
 }
 class Node{
