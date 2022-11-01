@@ -1,19 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class test {
     public static void main(String[] args) {
-        A a = new A();
-        A b;
-        b = a;
-        b.modif();
-        System.out.println(a.a);
-        System.out.println(b.a);
+        String s = "hsadf     sdf  d";
+        String strs[] = s.split("\\s+");
+        System.out.println(strs[strs.length-1].length());
+        System.out.println(strs.length);
+
     }
 }
 
-class A {
-    int a = 0;
-    public void modif(){
-        this.a = 1;
-    }
 
-
-}
